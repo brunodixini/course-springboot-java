@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="tb_user")
 public class User implements Serializable {
@@ -24,6 +26,7 @@ public class User implements Serializable {
 	private String phone;
 	private String password;
 	
+	@JsonIgnore
 	// para mapear os pedidos do usuario. Mapeado pelo atributo 'cliente' na classe Order 
 	@OneToMany(mappedBy = "client")
 	// como a lista de usuarios é uma colecao, na criacao da lista ja devemos instancia-la
